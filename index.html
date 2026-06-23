@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOSSOV.IT — Souveräne KI-Infrastruktur, gehostet in Europa</title>
+<meta name="description" content="Wir deployen, hosten und betreiben große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf einer von Ihnen kontrollierten Infrastruktur oder gemanagte proprietäre Modelle über Azure AI Foundry und Amazon Bedrock in EU-Regionen. Keine Daten verlassen die von Ihnen definierte Grenze.">
+<link rel="canonical" href="https://kossov.it/">
+<meta name="theme-color" content="#0c1116">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KOSSOV.IT">
+<meta property="og:title" content="KOSSOV.IT — Souveräne KI-Infrastruktur, gehostet in Europa">
+<meta property="og:description" content="Große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf Ihrer Infrastruktur oder gemanagte proprietäre Modelle in EU-Regionen. Keine Daten verlassen die von Ihnen definierte Grenze.">
+<meta property="og:url" content="https://kossov.it/">
+<meta property="og:image" content="https://kossov.it/assets/k-logo.svg">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  ::selection{background:#2ba9d3;color:#fff;}
+  @keyframes gridpan{from{background-position:0 0,0 0;}to{background-position:46px 46px,46px 46px;}}
+  @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  @keyframes ringpulse{0%{transform:scale(.62);opacity:.55;}70%{opacity:0;}100%{transform:scale(1.3);opacity:0;}}
+  @keyframes orbit{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  @keyframes flowdot{0%{left:-2px;opacity:0;}12%{opacity:1;}88%{opacity:1;}100%{left:calc(100% + 2px);opacity:0;}}
+  @keyframes flowdotv{0%{top:-2px;opacity:0;}12%{opacity:1;}88%{opacity:1;}100%{top:calc(100% + 2px);opacity:0;}}
+  @keyframes repel{0%{transform:translateX(0);opacity:0;}14%{opacity:1;}48%{transform:translateX(30px);opacity:1;}56%{transform:translateX(27px) scaleX(.7);}100%{transform:translateX(0);opacity:.12;}}
+  @keyframes wallflash{0%,44%{box-shadow:none;opacity:.7;}52%{box-shadow:0 0 12px rgba(218,33,40,.9);opacity:1;}68%,100%{box-shadow:none;opacity:.7;}}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+  .nav-link:hover{color:#fff!important;}
+  .cta-btn:hover,.cta-btn-lg:hover,.form-submit:hover{filter:brightness(.94);}
+  .ghost-btn:hover{border-color:#2ba9d3!important;}
+  .service-card:hover{border-color:rgba(43,169,211,.45)!important;}
+  .lang-flag.inactive:hover{opacity:1!important;}
+  .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#2ba9d3!important;}
+  .footer-link:hover,.back-link:hover{color:#fff!important;}
+  .drawer-link:hover{color:#fff!important;background:rgba(255,255,255,.05)!important;}
+  .mail-link:hover{color:#fff!important;}
+  /* FAQ accordion */
+  .faq-item{border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;padding:20px 22px;margin-bottom:12px;cursor:pointer;}
+  .faq-chev{color:#2ba9d3;font-size:20px;line-height:1;flex-shrink:0;display:inline-block;transition:transform .2s ease;}
+  .faq-chev.open{transform:rotate(90deg);}
+  .faq-ans{font-size:15px;line-height:1.7;color:#cfd6dd;margin:14px 0 0;display:none;}
+  .faq-ans.open{display:block;}
+  /* Contact form success */
+  .form-success{display:none;align-items:center;gap:8px;padding:24px 0;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5fbf92;}
+  .form-success.visible{display:flex;}
+  /* Mobile nav: hamburger icon swap */
+  .mobile-toggle .icon-close{display:none;}
+  body.menu-open .mobile-toggle .icon-menu{display:none;}
+  body.menu-open .mobile-toggle .icon-close{display:block;}
+  /* Mobile drawer + backdrop */
+  .backdrop{position:fixed;inset:0;z-index:120;background:rgba(6,9,12,.6);opacity:0;pointer-events:none;transition:opacity .3s ease;}
+  .backdrop.open{opacity:1;pointer-events:auto;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);}
+  .drawer{position:fixed;top:0;bottom:0;right:0;width:min(82%,360px);max-width:100vw;background:#0e141a;border-left:1px solid rgba(255,255,255,.08);z-index:130;padding:20px 22px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:4px;transform:translateX(102%);transition:transform .3s cubic-bezier(.4,0,.2,1);box-shadow:-24px 0 60px rgba(0,0,0,.55);pointer-events:none;}
+  .drawer.open{transform:translateX(0);pointer-events:auto;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;}html{scroll-behavior:auto!important;}}
+  @media (max-width:1024px){
+    .site-header{padding:13px 20px!important;}
+    .desktop-nav{display:none!important;}
+    .desktop-actions{display:none!important;}
+    .mobile-toggle{display:flex!important;}
+    .hero-grid{grid-template-columns:1fr!important;gap:44px!important;}
+    .hero-sec{padding-top:60px!important;padding-bottom:56px!important;}
+    .section-pad{padding-left:20px!important;padding-right:20px!important;}
+    .sec-pad-y{padding-top:56px!important;padding-bottom:56px!important;}
+    .why-grid,.services-grid,.deployment-grid,.compliance-grid,.sla-grid,.contact-grid{grid-template-columns:1fr!important;}
+    .compliance-grid{gap:36px!important;}
+    .contact-grid{gap:40px!important;}
+    .sla-grid{gap:30px!important;}
+    .certs-grid{grid-template-columns:1fr 1fr!important;}
+    .badges-strip{padding:18px 20px!important;}
+    .flow-card{padding:22px 18px!important;}
+    .flow-diagram{grid-template-columns:1fr!important;gap:0!important;}
+    .flow-inner{flex-direction:column!important;}
+    .flow-connector{display:none!important;}
+    .flow-connector-v{display:flex!important;}
+    .flow-side-connector{display:flex!important;}
+    .egress-spacer{display:none!important;}
+    .egress-diagram{margin-top:24px!important;}
+    .sticky-cta{display:flex!important;}
+    .site-root{padding-bottom:68px!important;}
+    .site-footer{padding:24px 20px!important;}
+    .contact-sec{padding:60px 20px!important;}
+  }
+  @media (max-width:560px){
+    .hero-h1{font-size:33px!important;}
+    .hero-sub{font-size:16px!important;}
+    .sec-h2{font-size:26px!important;}
+    .contact-h2{font-size:32px!important;}
+    .form-grid{grid-template-columns:1fr!important;}
+    .badges-strip{display:grid!important;grid-template-columns:1fr 1fr!important;gap:12px!important;}
+    .console-body{padding:18px!important;}
+    .sla-cell{padding:12px 11px!important;font-size:12px!important;}
+    .sla-head-cell{padding:11px!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="site-root" style="background:#0c1116;color:#fff;font-family:'Inter',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;">
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" style="position:sticky;top:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:16px 56px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(12,17,22,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+      <img src="assets/k-logo.svg" alt="KOSSOV.IT" style="height:30px;width:auto;display:block;">
+      <span style="font-weight:700;font-size:18px;letter-spacing:.04em;color:#fff;">KOSSOV.IT</span>
+    </a>
+    <nav class="desktop-nav" style="display:flex;gap:32px;">
+      <a href="#why" class="nav-link" data-i18n="nav.why" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">Warum</a>
+      <a href="#services" class="nav-link" data-i18n="nav.services" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">Leistungen</a>
+      <a href="#deployment" class="nav-link" data-i18n="nav.deployment" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">Deployment</a>
+      <a href="#compliance" class="nav-link" data-i18n="nav.compliance" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">Compliance</a>
+      <a href="#faq" class="nav-link" data-i18n="nav.faq" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">FAQ</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact" style="color:#cfd6dd;font-size:15px;font-weight:500;text-decoration:none;transition:color .15s;">Kontakt</a>
+    </nav>
+    <div class="desktop-actions" style="display:flex;align-items:center;gap:18px;">
+      <div style="display:flex;gap:8px;align-items:center;">
+        <img src="assets/flags/en.svg" alt="EN" title="English" class="lang-flag inactive" data-lang="en" style="width:22px;height:22px;border-radius:3px;cursor:pointer;opacity:.45;transition:opacity .15s;">
+        <img src="assets/flags/de.svg" alt="DE" title="Deutsch" class="lang-flag" data-lang="de" style="width:22px;height:22px;border-radius:3px;cursor:pointer;box-shadow:0 0 0 2px #2ba9d3;">
+      </div>
+      <a href="#contact" class="cta-btn" data-i18n="cta.talk" style="background:#2ba9d3;color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;transition:filter .15s;">Kontakt aufnehmen</a>
+    </div>
+    <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Menu" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid rgba(255,255,255,.14);border-radius:9px;cursor:pointer;color:#fff;padding:0;">
+      <svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" class="section-pad hero-sec" style="position:relative;padding:88px 56px 76px;background-color:#0c1116;background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);background-size:46px 46px;animation:gridpan 6s linear infinite;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(900px 420px at 78% 12%, rgba(43,169,211,.16), transparent 60%);pointer-events:none;"></div>
+    <div class="hero-grid" style="position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:center;">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+          <span style="color:#da2128;font-size:13px;">&#9656;</span>
+          <span data-i18n="hero.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;">Souveräne KI-Infrastruktur</span>
+        </div>
+        <h1 class="hero-h1" data-i18n="hero.h1" style="font-size:54px;font-weight:700;letter-spacing:-.03em;line-height:1.04;margin:0;color:#fff;">Ihre KI. Ihre Daten.<br><span style="color:#2ba9d3;">Ihre Jurisdiktion.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub" style="font-size:18px;line-height:1.65;color:#cfd6dd;margin:24px 0 0;max-width:520px;">Wir deployen, hosten und betreiben große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf einer von Ihnen kontrollierten Infrastruktur oder gemanagte proprietäre Modelle — Claude, GPT und Grok über Azure AI Foundry und Amazon Bedrock — in EU-Regionen. Keine Daten verlassen die von Ihnen definierte Grenze.</p>
+        <div style="display:flex;gap:14px;margin-top:32px;align-items:center;flex-wrap:wrap;">
+          <a href="#contact" class="cta-btn-lg" data-i18n="cta.talk" style="background:#2ba9d3;color:#fff;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(43,169,211,.30),0 2px 8px rgba(0,0,0,.10);transition:filter .15s;">Kontakt aufnehmen</a>
+          <a href="#how" class="ghost-btn" data-i18n="cta.how" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 22px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:border-color .15s;">So funktioniert es <span>&rarr;</span></a>
+        </div>
+        <div style="display:flex;gap:26px;margin-top:34px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#9aa3ad;flex-wrap:wrap;">
+          <span>&#9656; Germany · Frankfurt</span>
+          <span data-i18n="hero.badge2">&#9656; Keine Daten verlassen Ihre Grenze</span>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="position:absolute;top:-54px;right:-18px;z-index:3;animation:floaty 7s ease-in-out infinite;">
+          <div style="position:relative;width:128px;height:128px;display:flex;align-items:center;justify-content:center;">
+            <span style="position:absolute;width:128px;height:128px;border-radius:999px;border:1.5px solid rgba(43,169,211,.55);animation:ringpulse 3.2s ease-out infinite;"></span>
+            <span style="position:absolute;width:128px;height:128px;border-radius:999px;border:1.5px solid rgba(43,169,211,.35);animation:ringpulse 3.2s ease-out infinite;animation-delay:1.6s;"></span>
+            <span style="position:absolute;width:108px;height:108px;border-radius:999px;animation:orbit 9s linear infinite;">
+              <span style="position:absolute;top:-3px;left:50%;width:7px;height:7px;margin-left:-3px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 10px rgba(43,169,211,.9);"></span>
+            </span>
+            <div style="position:relative;filter:drop-shadow(0 6px 18px rgba(43,169,211,.4));">
+              <svg width="62" height="74" viewBox="0 0 62 74" fill="none">
+                <path d="M31 3 L57 13 V36 C57 54 46 65 31 71 C16 65 5 54 5 36 V13 Z" fill="rgba(17,23,29,.95)" stroke="#2ba9d3" stroke-width="2"/>
+                <path d="M22 37 l7 7 l13 -15" stroke="#2ba9d3" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div style="background:#11171d;border:1px solid rgba(255,255,255,.09);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.45);overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:10px;padding:13px 18px;border-bottom:1px solid rgba(255,255,255,.07);background:#0e141a;">
+            <span style="width:10px;height:10px;border-radius:999px;background:#3a424c;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:999px;background:#3a424c;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:999px;background:#3a424c;display:inline-block;"></span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#9aa3ad;margin-left:8px;">data-sovereignty.tf</span>
+          </div>
+          <div class="console-body" style="padding:22px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;line-height:2;">
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">region</span><span style="color:#fff;text-align:right;">Germany · Frankfurt</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">egress</span><span data-i18n="console.egress" style="color:#5cd2ee;text-align:right;">keine — Grenze erzwungen</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">encryption</span><span data-i18n="console.encryption" style="color:#fff;text-align:right;">AES-256 · Schlüssel in der Region</span></div>
+            <div data-i18n="console.openLabel" style="margin:16px 0 8px;color:#9aa3ad;">Modelle · offen <span style="color:#5cd2ee;">— in Ihrer Grenze</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">Llama 4 Maverick</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">Mistral Large 2</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">Qwen3 235B</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">Gemma 3 27B</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">DeepSeek-V4</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">Kimi K2</span>
+              <span style="font-size:12px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.3);border-radius:6px;padding:5px 10px;">GLM 5.2</span>
+            </div>
+            <div data-i18n="console.propLabel" style="margin:14px 0 8px;color:#9aa3ad;">Modelle · proprietär <span style="color:#f08a8e;">— Azure AI Foundry + Bedrock · EU</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="font-size:12px;background:rgba(218,33,40,.12);color:#f08a8e;border:1px solid rgba(218,33,40,.3);border-radius:6px;padding:5px 10px;">Claude Opus 4.8</span>
+              <span style="font-size:12px;background:rgba(218,33,40,.12);color:#f08a8e;border:1px solid rgba(218,33,40,.3);border-radius:6px;padding:5px 10px;">GPT-5.5</span>
+              <span style="font-size:12px;background:rgba(218,33,40,.12);color:#f08a8e;border:1px solid rgba(218,33,40,.3);border-radius:6px;padding:5px 10px;">Grok 4.3</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);flex-wrap:wrap;">
+              <span style="width:8px;height:8px;border-radius:999px;background:#1f8a5b;display:inline-block;"></span>
+              <span data-i18n="console.status" style="color:#5fbf92;">status: gesund · alle Systeme in der Region</span>
+              <span style="display:inline-block;width:8px;height:15px;background:#5fbf92;margin-left:3px;vertical-align:middle;animation:blink 1.1s step-end infinite;"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BADGES ============ -->
+  <div style="border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:#0e141a;">
+    <div class="badges-strip" style="max-width:1180px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;gap:24px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;flex-wrap:wrap;">
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.residency">EU-Datenresidenz</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.gdpr">DSGVO-konform</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.aiact">Bereit für den EU AI Act</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.lockin">Kein US-Cloud-Lock-in</span></span>
+    </div>
+  </div>
+
+  <!-- ============ 01 WHY ============ -->
+  <section id="why" class="section-pad sec-pad-y" style="padding-top:80px;padding-bottom:80px;scroll-margin-top:80px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div data-i18n="why.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">01 — Warum souverän</div>
+      <h2 class="sec-h2" data-i18n="why.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;max-width:760px;color:#fff;">KI-Leistung, ohne die Kontrolle abzugeben</h2>
+      <p data-i18n="why.lead" style="font-size:17px;line-height:1.7;color:#cfd6dd;margin:22px 0 0;max-width:740px;">Die meisten KI-Dienste leiten Ihre Prompts, Dokumente und Kundendaten über Infrastruktur, die ausländischem Recht unterliegt. Für regulierte Branchen und seriöse Unternehmen ist das ein inakzeptables Risiko. Wir geben Ihnen Sprachmodelle auf Spitzenniveau — und halten dabei jedes Byte innerhalb einer Jurisdiktion, einer Region und einer Zugriffsgrenze, die Ihnen gehören.</p>
+      <div class="why-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;">
+        <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px;">
+          <div style="width:34px;height:34px;border-radius:8px;background:rgba(43,169,211,.14);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;color:#2ba9d3;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;margin-bottom:16px;">01</div>
+          <h3 data-i18n="why.c1.h" style="font-size:18px;font-weight:600;margin:0 0 10px;color:#fff;">Datenresidenz, die Sie nachweisen können</h3>
+          <p data-i18n="why.c1.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Inferenz, Embeddings und Logs bleiben in der von Ihnen gewählten EU-Region — standardmäßig Frankfurt. Nichts läuft über ein US-kontrolliertes Backbone.</p>
+        </div>
+        <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px;">
+          <div style="width:34px;height:34px;border-radius:8px;background:rgba(43,169,211,.14);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;color:#2ba9d3;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;margin-bottom:16px;">02</div>
+          <h3 data-i18n="why.c2.h" style="font-size:18px;font-weight:600;margin:0 0 10px;color:#fff;">Planbare Kosten, die Ihnen gehören</h3>
+          <p data-i18n="why.c2.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Reservierte Kapazität und Festpreis-Hosting statt unbegrenzter Pro-Token-Abrechnung. Kalkulieren Sie KI-Ausgaben wie jede andere Infrastrukturposition.</p>
+        </div>
+        <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px;">
+          <div style="width:34px;height:34px;border-radius:8px;background:rgba(43,169,211,.14);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;color:#2ba9d3;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:14px;margin-bottom:16px;">03</div>
+          <h3 data-i18n="why.c3.h" style="font-size:18px;font-weight:600;margin:0 0 10px;color:#fff;">Compliance durch Architektur</h3>
+          <p data-i18n="why.c3.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">DSGVO und EU AI Act sind in das Deployment hineinkonstruiert — nicht nachträglich angeflanscht. Audit-Trails, AV-Verträge und Datenfluss-Dokumentation inklusive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 SERVICES ============ -->
+  <section id="services" class="section-pad sec-pad-y" style="padding-bottom:80px;scroll-margin-top:80px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div data-i18n="services.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">02 — Leistungen</div>
+      <h2 class="sec-h2" data-i18n="services.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;max-width:720px;color:#fff;">Vom ersten Deployment bis zum feinabgestimmten Produktivbetrieb</h2>
+      <div class="services-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;">
+        <div class="service-card" style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;transition:border-color .15s;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5b6470;">01</span>
+            <span data-i18n="services.s1.tag" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.28);border-radius:999px;padding:5px 11px;">Analyse</span>
+          </div>
+          <h3 data-i18n="services.s1.h" style="font-size:20px;font-weight:600;margin:0 0 10px;color:#fff;">Setup &amp; Architektur</h3>
+          <p data-i18n="services.s1.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Wir entwerfen das Deployment: Modellauswahl, Region, Netzwerkgrenze, Zugriffskontrolle und die zugehörige Compliance-Dokumentation.</p>
+        </div>
+        <div class="service-card" style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;transition:border-color .15s;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5b6470;">02</span>
+            <span data-i18n="services.s2.tag" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.28);border-radius:999px;padding:5px 11px;">Offen + gemanagt (EU)</span>
+          </div>
+          <h3 data-i18n="services.s2.h" style="font-size:20px;font-weight:600;margin:0 0 10px;color:#fff;">Managed Hosting</h3>
+          <p data-i18n="services.s2.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Wir betreiben die Modelle für Sie — Open-Weight (Llama 4, Mistral, Qwen3, Gemma 3, DeepSeek, Kimi K2, GLM 5.2) auf einer von Ihnen kontrollierten Infrastruktur oder gemanagte proprietäre Modelle — Claude, GPT und Grok über Azure AI Foundry und Amazon Bedrock (EU). Überwacht, gepatcht, skaliert.</p>
+        </div>
+        <div class="service-card" style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;transition:border-color .15s;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5b6470;">03</span>
+            <span data-i18n="services.s3.tag" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.28);border-radius:999px;padding:5px 11px;">Retrieval</span>
+          </div>
+          <h3 data-i18n="services.s3.h" style="font-size:20px;font-weight:600;margin:0 0 10px;color:#fff;">RAG &amp; privates Wissen</h3>
+          <p data-i18n="services.s3.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Verbinden Sie Ihre eigenen Dokumente, Wikis und Datenbanken über eine private Retrieval-Schicht mit dem Modell. Ihr Wissen wird abfragbar — ohne jemals Ihre Grenze zu verlassen.</p>
+        </div>
+        <div class="service-card" style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;transition:border-color .15s;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#5b6470;">04</span>
+            <span data-i18n="services.s4.tag" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;background:rgba(43,169,211,.12);color:#5cd2ee;border:1px solid rgba(43,169,211,.28);border-radius:999px;padding:5px 11px;">Eigene Gewichte</span>
+          </div>
+          <h3 data-i18n="services.s4.h" style="font-size:20px;font-weight:600;margin:0 0 10px;color:#fff;">Fine-Tuning</h3>
+          <p data-i18n="services.s4.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Passen Sie ein Basismodell an Ihre Domäne, Ihren Ton und Ihre Terminologie an — auf Ihren eigenen Daten. Die resultierenden Gewichte gehören Ihnen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 HOW DATA FLOWS ============ -->
+  <section id="how" class="section-pad sec-pad-y" style="padding-bottom:80px;scroll-margin-top:80px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div data-i18n="how.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">03 — Wie Ihre Daten fließen</div>
+      <h2 class="sec-h2" data-i18n="how.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;max-width:720px;color:#fff;">Jede Anfrage bleibt innerhalb der Grenze</h2>
+      <p data-i18n="how.lead" style="font-size:17px;line-height:1.7;color:#cfd6dd;margin:22px 0 0;max-width:740px;">Keine Blackbox. Dies ist der tatsächliche Weg einer Anfrage — und der Weg, den sie niemals nehmen darf.</p>
+      <div class="flow-card" style="margin-top:44px;background:#0e141a;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px;">
+        <div class="flow-diagram" style="display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;">
+          <div style="background:#11171d;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;text-align:center;">
+            <div data-i18n="how.yourside" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3ad;margin-bottom:12px;">Ihre Seite</div>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5" style="margin-bottom:10px;"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4" stroke-linecap="round"/></svg>
+            <div data-i18n="how.users" style="font-size:15px;font-weight:600;color:#fff;">Ihre Nutzer &amp; Apps</div>
+            <div data-i18n="how.tls" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5b6470;margin-top:6px;">&rarr; TLS 1.3 mit gegenseitiger Auth</div>
+          </div>
+
+          <div class="flow-side-connector" style="display:none;align-items:center;justify-content:center;padding:6px 0;">
+            <div style="position:relative;width:2px;height:30px;background:rgba(43,169,211,.25);overflow:visible;">
+              <span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;"></span>
+            </div>
+          </div>
+
+          <div style="position:relative;border:1.5px dashed rgba(43,169,211,.6);border-radius:16px;padding:24px 22px 22px;background:rgba(43,169,211,.04);">
+            <div data-i18n="how.boundary" style="position:absolute;top:-11px;left:20px;background:#0e141a;padding:0 10px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#2ba9d3;">Germany · Frankfurt — souveräne Grenze</div>
+            <div class="flow-inner" style="display:flex;align-items:stretch;gap:0;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
+                <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><path d="M4 12h16M4 12l5-5M4 12l5 5" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="6" width="6" height="12" rx="1"/></svg></div>
+                <div data-i18n="how.gw" style="font-size:13px;font-weight:600;color:#fff;">API-Gateway</div>
+                <div data-i18n="how.gw.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">Auth · Rate-Limit</div>
+              </div>
+              <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;"></span></div></div>
+              <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;"></span></div></div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
+                <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke-linecap="round"/></svg></div>
+                <div data-i18n="how.inf" style="font-size:13px;font-weight:600;color:#fff;">Inferenz</div>
+                <div data-i18n="how.inf.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">offen + proprietär</div>
+              </div>
+              <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;animation-delay:.9s;"></span></div></div>
+              <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;animation-delay:.9s;"></span></div></div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
+                <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+                <div data-i18n="how.rag" style="font-size:13px;font-weight:600;color:#fff;">RAG-Speicher</div>
+                <div data-i18n="how.rag.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">Ihre Dokumente</div>
+              </div>
+              <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;animation-delay:1.7s;"></span></div></div>
+              <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;animation-delay:1.7s;"></span></div></div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
+                <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg></div>
+                <div data-i18n="how.logs" style="font-size:13px;font-weight:600;color:#fff;">Logs &amp; Schlüssel</div>
+                <div data-i18n="how.logs.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">nur in der Region</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flow-diagram egress-diagram" style="display:grid;grid-template-columns:200px 1fr;gap:28px;margin-top:22px;">
+          <div class="egress-spacer"></div>
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 18px;border:1px solid rgba(218,33,40,.3);border-radius:12px;background:rgba(218,33,40,.06);">
+            <div style="position:relative;width:64px;height:24px;flex:none;display:flex;align-items:center;">
+              <span style="position:absolute;left:2px;top:11px;width:34px;border-top:2px dashed rgba(218,33,40,.4);"></span>
+              <span style="position:absolute;top:7px;left:2px;width:8px;height:8px;border-radius:999px;background:#da2128;box-shadow:0 0 8px rgba(218,33,40,.7);animation:repel 2.4s cubic-bezier(.5,0,.3,1) infinite;"></span>
+              <span style="position:absolute;right:0;top:1px;width:20px;height:20px;border-radius:999px;border:2px solid #da2128;display:flex;align-items:center;justify-content:center;animation:wallflash 2.4s ease-in-out infinite;"><span style="width:11px;height:2px;background:#da2128;border-radius:1px;"></span></span>
+            </div>
+            <div>
+              <div data-i18n="how.egress.h" style="font-size:14px;font-weight:600;color:#fff;">Egress in US-kontrollierte Cloud — blockiert</div>
+              <div data-i18n="how.egress.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#9aa3ad;margin-top:3px;">keine Replikation, keine Telemetrie, kein Modell-Provider-Callback verlässt die EU-Grenze</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 DEPLOYMENT ============ -->
+  <section id="deployment" class="section-pad sec-pad-y" style="padding-bottom:80px;scroll-margin-top:80px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div data-i18n="deploy.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">04 — Deployment</div>
+      <h2 class="sec-h2" data-i18n="deploy.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;color:#fff;">Drei Wege, die Grenze zu ziehen</h2>
+      <p data-i18n="deploy.regions" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#9aa3ad;margin:16px 0 0;">Regionen: <span style="color:#fff;">Germany · Frankfurt</span> — weitere auf Anfrage</p>
+      <div class="deployment-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#da2128;">Tier 1</span>
+            <span data-i18n="deploy.t1.kind" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6470;">Gemanagt</span>
+          </div>
+          <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
+            <div style="height:4px;background:#da2128;"></div>
+            <div style="padding:26px;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5b6470;">Azure AI Foundry · Amazon Bedrock</span>
+              <h3 data-i18n="deploy.t1.h" style="font-size:20px;font-weight:600;margin:10px 0 10px;color:#fff;">Gemanagt proprietär (EU)</h3>
+              <p data-i18n="deploy.t1.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Proprietäre Spitzenmodelle — Claude Opus 4.8, GPT-5.5, Grok 4.3 — über Azure AI Foundry und Amazon Bedrock. EU-Datengrenze und EU-Verträge.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2ba9d3;">Tier 2</span>
+            <span data-i18n="deploy.t2.kind" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6470;">Souverän</span>
+          </div>
+          <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
+            <div style="height:4px;background:#2ba9d3;"></div>
+            <div style="padding:26px;">
+              <span data-i18n="deploy.t2.tag" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5b6470;">Ihre Hardware</span>
+              <h3 data-i18n="deploy.t2.h" style="font-size:20px;font-weight:600;margin:10px 0 10px;color:#fff;">On-Premise</h3>
+              <p data-i18n="deploy.t2.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Die Modelle laufen auf Ihrer eigenen Hardware, innerhalb Ihrer eigenen Mauern. Die Option für maximale Souveränität — für Verteidigung, öffentlichen Sektor und kritische Infrastruktur.</p>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2ba9d3;">Tier 3</span>
+            <span data-i18n="deploy.t3.kind" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#5b6470;">Dediziert</span>
+          </div>
+          <div style="background:#11171d;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
+            <div style="height:4px;background:#2ba9d3;"></div>
+            <div style="padding:26px;">
+              <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#5b6470;">Germany · Frankfurt</span>
+              <h3 data-i18n="deploy.t3.h" style="font-size:20px;font-weight:600;margin:10px 0 10px;color:#fff;">Private Cloud (EU)</h3>
+              <p data-i18n="deploy.t3.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Dedizierte Single-Tenant-Infrastruktur in einer deutschen Region, mit EU-Failover. Vollständige Isolation bei der Elastizität der Cloud.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 COMPLIANCE ============ -->
+  <section id="compliance" class="section-pad" style="padding-bottom:60px;padding-top:0;scroll-margin-top:80px;">
+    <div class="compliance-grid" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start;">
+      <div>
+        <div data-i18n="comp.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">05 — Compliance &amp; Vertrauen</div>
+        <h2 class="sec-h2" data-i18n="comp.h2" style="font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0;color:#fff;">Gebaut für Jurisdiktionen, die Daten ernst nehmen</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="display:flex;gap:18px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <div><h3 data-i18n="comp.i1.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">EU- &amp; deutsche Jurisdiktion</h3><p data-i18n="comp.i1.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Verträge, Infrastruktur und Betrieb nach europäischem Recht. Maximale Souveränität auf eigener Infrastruktur — außerhalb der Reichweite des CLOUD Act.</p></div>
+        </div>
+        <div style="display:flex;gap:18px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);">
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <div><h3 data-i18n="comp.i2.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">DSGVO ab Werk</h3><p data-i18n="comp.i2.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Auftragsverarbeitungsverträge, dokumentierte Datenflüsse und EU-ansässige Speicherung ab dem ersten Tag.</p></div>
+        </div>
+        <div style="display:flex;gap:18px;padding:22px 0;">
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <div><h3 data-i18n="comp.i3.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">Bereit für den EU AI Act</h3><p data-i18n="comp.i3.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Risikoklassifizierung, Transparenz und Logging — ausgerichtet an den kommenden Pflichten des AI Act.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="certs-grid" style="max-width:1180px;margin:8px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">ISO 27001</span><span data-i18n="cert.inprogress" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#e0b15a;background:rgba(224,177,90,.12);border:1px solid rgba(224,177,90,.3);border-radius:999px;padding:4px 9px;">In Arbeit</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">BSI C5</span><span data-i18n="cert.aligned" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5cd2ee;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);border-radius:999px;padding:4px 9px;">Ausgerichtet</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">GDPR / DSGVO</span><span data-i18n="cert.compliant" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5fbf92;background:rgba(31,138,91,.14);border:1px solid rgba(31,138,91,.35);border-radius:999px;padding:4px 9px;">Konform</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">EU AI Act</span><span data-i18n="cert.ready" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5fbf92;background:rgba(31,138,91,.14);border:1px solid rgba(31,138,91,.35);border-radius:999px;padding:4px 9px;">Bereit</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SLA ============ -->
+  <section class="section-pad" style="padding-top:40px;padding-bottom:80px;">
+    <div style="max-width:1180px;margin:0 auto;background:#0e141a;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px;">
+      <div class="sla-grid" style="display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;">
+        <div>
+          <div data-i18n="sla.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">Service-Level-Agreement</div>
+          <h2 class="sec-h2" data-i18n="sla.h2" style="font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:0;color:#fff;">Garantierte Verfügbarkeit und Reaktionszeiten</h2>
+          <p data-i18n="sla.p" style="font-size:15px;line-height:1.7;color:#9aa3ad;margin:18px 0 0;">Jedes gemanagte Deployment ist durch ein schriftliches SLA abgesichert — definierte Verfügbarkeits- und Reaktionszeit-Ziele, rund um die Uhr überwacht von einem EU-ansässigen Engineering-Team. Klare Zahlen, vertraglich festgehalten.</p>
+          <div style="display:flex;gap:28px;margin-top:26px;flex-wrap:wrap;">
+            <div><div style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:34px;font-weight:700;color:#fff;letter-spacing:-.02em;">99.95%</div><div data-i18n="sla.uptime" style="font-size:13px;color:#9aa3ad;margin-top:4px;">Verfügbarkeit, monatlich</div></div>
+            <div><div style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:34px;font-weight:700;color:#fff;letter-spacing:-.02em;">&lt;30<span style="font-size:18px;">min</span></div><div data-i18n="sla.p1" style="font-size:13px;color:#9aa3ad;margin-top:4px;">P1-Reaktion, 24/7</div></div>
+          </div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5b6470;background:#11171d;border-bottom:1px solid rgba(255,255,255,.08);">
+            <div class="sla-head-cell" data-i18n="sla.sev" style="padding:13px 16px;">Schweregrad</div><div class="sla-head-cell" data-i18n="sla.resp" style="padding:13px 16px;">Reaktion</div><div class="sla-head-cell" data-i18n="sla.fix" style="padding:13px 16px;">Ziel-Behebung</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div class="sla-cell" style="padding:15px 16px;color:#fff;display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:999px;background:#da2128;flex:none;"></span><span data-i18n="sla.r1">P1 · Ausfall</span></div><div class="sla-cell" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">30 min</div><div class="sla-cell" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">4 h</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div class="sla-cell" style="padding:15px 16px;color:#fff;display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:999px;background:#e0b15a;flex:none;"></span><span data-i18n="sla.r2">P2 · Eingeschränkt</span></div><div class="sla-cell" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">2 h</div><div class="sla-cell" data-i18n="sla.bd1" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">1 Werktag</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;font-size:14px;">
+            <div class="sla-cell" style="padding:15px 16px;color:#fff;display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:999px;background:#5fbf92;flex:none;"></span><span data-i18n="sla.r3">P3 · Frage</span></div><div class="sla-cell" data-i18n="sla.bd1b" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">1 Werktag</div><div class="sla-cell" data-i18n="sla.sched" style="padding:15px 16px;color:#cfd6dd;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;">geplant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 FAQ ============ -->
+  <section id="faq" class="section-pad sec-pad-y" style="padding-bottom:84px;scroll-margin-top:80px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <div data-i18n="faq.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">06 — FAQ</div>
+      <h2 class="sec-h2" data-i18n="faq.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0 0 40px;color:#fff;">Fragen, die Ihre Security- und Rechtsabteilung stellen wird</h2>
+
+      <div class="faq-item" onclick="toggleFaq(0)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+          <span data-i18n="faq.q0" style="font-size:17px;font-weight:600;color:#fff;">Sind wir dem US CLOUD Act ausgesetzt?</span>
+          <span class="faq-chev" id="chev-0">&rsaquo;</span>
+        </div>
+        <p class="faq-ans" id="ans-0" data-i18n="faq.a0">Bei Open-Weight-Modellen auf eigener oder Single-Tenant-EU-Infrastruktur: nein — es gibt kein US-Mutterunternehmen im Datenpfad, der CLOUD Act erreicht Ihre Daten also nicht. Beim gemanagten Azure-AI-Foundry-Pfad bleibt die Verarbeitung in EU-Regionen unter der Microsoft EU Data Boundary und EU-Verträgen; wir sagen offen, dass Microsoft ein US-Mutterunternehmen hat — genau deshalb bieten wir den Weg über eigene Infrastruktur als Option für maximale Souveränität an. Wir helfen Ihnen, pro Workload den richtigen Kompromiss zu wählen.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(1)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+          <span data-i18n="faq.q1" style="font-size:17px;font-weight:600;color:#fff;">Wo genau liegen meine Daten?</span>
+          <span class="faq-chev" id="chev-1">&rsaquo;</span>
+        </div>
+        <p class="faq-ans" id="ans-1" data-i18n="faq.a1">In der von Ihnen gewählten benannten Region — standardmäßig Germany · Frankfurt, mit einer EU-Failover-Region. Inferenz, Embeddings, der RAG-Speicher, Logs und Verschlüsselungsschlüssel bleiben allesamt in der Region. Nichts wird außerhalb der EU-Grenze repliziert, gespiegelt oder gesichert — und wir dokumentieren den Datenfluss, sodass Sie ihn Ihrem Prüfer vorlegen können.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(2)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+          <span data-i18n="faq.q2" style="font-size:17px;font-weight:600;color:#fff;">Kann ich wechseln — und meine Daten und Gewichte mitnehmen?</span>
+          <span class="faq-chev" id="chev-2">&rsaquo;</span>
+        </div>
+        <p class="faq-ans" id="ans-2" data-i18n="faq.a2">Ja. Kein Lock-in. Ihre Daten sind jederzeit exportierbar, und alle feinabgestimmten Gewichte, die wir erzeugen, gehören Ihnen — zum Behalten und Betreiben anderswo. Wir setzen bewusst auf offene Standards und Open-Weight-Modelle, damit ein Wechsel eine saubere Übergabe ist und keine Geiselnahme.</p>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(3)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+          <span data-i18n="faq.q3" style="font-size:17px;font-weight:600;color:#fff;">Wer kann auf die Modelle und meine Daten zugreifen?</span>
+          <span class="faq-chev" id="chev-3">&rsaquo;</span>
+        </div>
+        <p class="faq-ans" id="ans-3" data-i18n="faq.a3">Nur die Identitäten, die Sie autorisieren — über rollenbasierte Zugriffskontrolle und vollständiges Audit-Logging. Unser EU-ansässiges Operations-Team greift ausschließlich nach dokumentierten, protokollierten Verfahren auf die Infrastruktur zu. Ihre Prompts und Dokumente werden niemals zum Training gemeinsam genutzter Modelle verwendet — Ihre Daten arbeiten allein für Sie.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section-pad contact-sec" style="background:#2a7eb4;color:#fff;padding:80px 56px;scroll-margin-top:64px;">
+    <div class="contact-grid" style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+      <div>
+        <div data-i18n="contact.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:18px;">Sprechen wir darüber</div>
+        <h2 class="contact-h2" data-i18n="contact.h2" style="font-size:42px;font-weight:700;letter-spacing:-.025em;line-height:1.05;margin:0;color:#fff;">Holen Sie Ihre KI nach Hause.</h2>
+        <p data-i18n="contact.p" style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.85);margin:22px 0 0;max-width:480px;">Sagen Sie uns, was Sie betreiben möchten und was Sie schützen müssen. Wir melden uns mit einem konkreten Deployment und einem Festpreis-Angebot zurück — keine Pitch-Decks, kein Fachjargon.</p>
+        <div style="margin-top:34px;display:flex;flex-direction:column;gap:18px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;"><span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.15);border-radius:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</span><div><div data-i18n="contact.s1.h" style="font-size:15px;font-weight:600;color:#fff;">Ein echtes Gespräch</div><div data-i18n="contact.s1.p" style="font-size:14px;color:rgba(255,255,255,.78);line-height:1.6;">30 Minuten mit einem Ingenieur, nicht mit einem Vertriebler.</div></div></div>
+          <div style="display:flex;gap:14px;align-items:flex-start;"><span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.15);border-radius:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</span><div><div data-i18n="contact.s2.h" style="font-size:15px;font-weight:600;color:#fff;">Ein konkretes Angebot</div><div data-i18n="contact.s2.p" style="font-size:14px;color:rgba(255,255,255,.78);line-height:1.6;">Modelle, Region, Grenze und Festpreis — innerhalb einer Woche.</div></div></div>
+          <div style="display:flex;gap:14px;align-items:flex-start;"><span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#fff;background:rgba(255,255,255,.15);border-radius:8px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</span><div><div data-i18n="contact.s3.h" style="font-size:15px;font-weight:600;color:#fff;">Ein laufendes Deployment</div><div data-i18n="contact.s3.p" style="font-size:14px;color:rgba(255,255,255,.78);line-height:1.6;">Live in Ihrer Grenze, überwacht und durch ein SLA abgesichert.</div></div></div>
+        </div>
+        <div data-i18n="contact.directEmail" style="margin-top:28px;font-size:15px;color:rgba(255,255,255,.85);">Oder schreiben Sie uns direkt: <a href="mailto:hi@kossov.it" class="mail-link" style="color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .15s;">hi@kossov.it</a></div>
+      </div>
+      <div style="background:#0c1116;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.35);">
+        <form id="contact-form" onsubmit="submitForm(event)">
+          <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+            <div><label data-i18n="form.name" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Name</label><input type="text" placeholder="Erika Mustermann" data-i18n-ph="form.name.ph" class="form-input" required style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;"></div>
+            <div><label data-i18n="form.company" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Unternehmen</label><input type="text" placeholder="Acme GmbH" class="form-input" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;"></div>
+          </div>
+          <div style="margin-top:14px;"><label data-i18n="form.email" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Geschäftliche E-Mail</label><input type="email" placeholder="erika@acme.de" data-i18n-ph="form.email.ph" class="form-input" required style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;"></div>
+          <div style="margin-top:14px;"><label data-i18n="form.deployment" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Bevorzugtes Deployment</label><select class="form-select" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;appearance:none;-webkit-appearance:none;"><option data-i18n="form.opt1">Gemanagt proprietär (EU)</option><option data-i18n="form.opt2">Private Cloud (EU)</option><option data-i18n="form.opt3">On-Premise</option><option data-i18n="form.opt4">Noch unsicher — beraten Sie mich</option></select></div>
+          <div style="margin-top:14px;"><label data-i18n="form.run" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Was möchten Sie betreiben?</label><textarea rows="3" placeholder="z. B. privates RAG über unsere internen Dokumente, dazu ein Chat-Assistent für den Support …" data-i18n-ph="form.run.ph" class="form-textarea" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;resize:vertical;"></textarea></div>
+          <button type="submit" class="form-submit" data-i18n="form.submit" style="margin-top:18px;width:100%;background:#2ba9d3;color:#fff;border:none;padding:14px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;font-family:'Inter',sans-serif;transition:filter .15s;">Deployment-Plan anfordern</button>
+        </form>
+        <div class="form-success" id="form-success"><span style="width:7px;height:7px;border-radius:999px;background:#5fbf92;"></span><span data-i18n="form.success">Danke — wir antworten innerhalb eines Werktags.</span></div>
+        <div data-i18n="form.note" style="margin-top:12px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5b6470;text-align:center;">Kein Newsletter. Kein CRM-Spam. Nur eine Antwort.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer" style="padding:34px 56px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);background:#0c1116;flex-wrap:wrap;gap:16px;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="assets/k-logo.svg" alt="" style="height:24px;width:auto;">
+      <span style="font-weight:700;font-size:14px;letter-spacing:.04em;color:#fff;">KOSSOV.IT</span>
+      <span data-i18n="footer.tag" style="color:#9aa3ad;font-size:13px;margin-left:6px;">Souveräne KI, gehostet in Europa.</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:22px;font-size:13px;color:#9aa3ad;flex-wrap:wrap;">
+      <a href="legal-notice.html" class="footer-link" data-i18n="footer.legal" style="color:#cfd6dd;text-decoration:none;transition:color .15s;">Impressum</a>
+      <span data-i18n="footer.rights">&copy; 2026 KOSSOV.IT — Alle Rechte vorbehalten.</span>
+    </div>
+  </footer>
+
+  <!-- ============ MOBILE DRAWER + BACKDROP ============ -->
+  <div id="backdrop" class="backdrop" onclick="closeMenu()"></div>
+  <aside id="drawer" class="drawer">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;">
+      <span style="font-weight:700;font-size:16px;letter-spacing:.04em;color:#fff;">KOSSOV.IT</span>
+      <button onclick="closeMenu()" aria-label="Close" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(255,255,255,.14);border-radius:9px;cursor:pointer;padding:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <a href="#why" onclick="closeMenu()" class="drawer-link" data-i18n="nav.why" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">Warum</a>
+    <a href="#services" onclick="closeMenu()" class="drawer-link" data-i18n="nav.services" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">Leistungen</a>
+    <a href="#deployment" onclick="closeMenu()" class="drawer-link" data-i18n="nav.deployment" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">Deployment</a>
+    <a href="#compliance" onclick="closeMenu()" class="drawer-link" data-i18n="nav.compliance" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">Compliance</a>
+    <a href="#faq" onclick="closeMenu()" class="drawer-link" data-i18n="nav.faq" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">FAQ</a>
+    <a href="#contact" onclick="closeMenu()" class="drawer-link" data-i18n="nav.contact" style="color:#cfd6dd;font-size:17px;font-weight:500;text-decoration:none;padding:13px 12px;border-radius:9px;transition:all .15s;">Kontakt</a>
+    <div style="display:flex;gap:10px;align-items:center;margin-top:20px;padding:0 12px;">
+      <img src="assets/flags/en.svg" alt="EN" class="lang-flag inactive" data-lang="en" style="width:26px;height:26px;border-radius:4px;cursor:pointer;opacity:.45;transition:opacity .15s;">
+      <img src="assets/flags/de.svg" alt="DE" class="lang-flag" data-lang="de" style="width:26px;height:26px;border-radius:4px;cursor:pointer;box-shadow:0 0 0 2px #2ba9d3;">
+      <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;color:#5b6470;margin-left:4px;">EN / DE</span>
+    </div>
+    <a href="#contact" onclick="closeMenu()" data-i18n="cta.talk" style="margin-top:auto;background:#2ba9d3;color:#fff;padding:15px;border-radius:10px;font-weight:600;font-size:16px;text-decoration:none;text-align:center;box-shadow:0 8px 24px rgba(43,169,211,.3);">Kontakt aufnehmen</a>
+  </aside>
+
+  <!-- ============ STICKY CTA ============ -->
+  <div class="sticky-cta" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:80;align-items:center;justify-content:space-between;gap:14px;padding:12px 18px;background:rgba(12,17,22,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.1);">
+    <div style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+      <span data-i18n="sticky.title" style="font-size:13px;font-weight:600;color:#fff;">Souveräne KI, gehostet in der EU</span>
+      <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#9aa3ad;">Germany · Frankfurt</span>
+    </div>
+    <a href="#contact" data-i18n="cta.talk" style="flex:none;background:#2ba9d3;color:#fff;padding:12px 20px;border-radius:9px;font-weight:600;font-size:14px;text-decoration:none;box-shadow:0 6px 18px rgba(43,169,211,.3);">Kontakt aufnehmen</a>
+  </div>
+
+</div>
+
+<script>
+  // Mobile drawer
+  function toggleMenu(){
+    var open = document.body.classList.toggle('menu-open');
+    document.getElementById('drawer').classList.toggle('open', open);
+    document.getElementById('backdrop').classList.toggle('open', open);
+  }
+  function closeMenu(){
+    document.body.classList.remove('menu-open');
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('backdrop').classList.remove('open');
+  }
+  // Close drawer on Escape, or when viewport grows past the mobile breakpoint
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 1024) closeMenu(); });
+
+  // FAQ accordion — one open at a time
+  var openFaq = -1;
+  function toggleFaq(i){
+    var wasOpen = openFaq === i;
+    if(openFaq >= 0){
+      document.getElementById('ans-' + openFaq).classList.remove('open');
+      document.getElementById('chev-' + openFaq).classList.remove('open');
+    }
+    openFaq = wasOpen ? -1 : i;
+    if(openFaq >= 0){
+      document.getElementById('ans-' + openFaq).classList.add('open');
+      document.getElementById('chev-' + openFaq).classList.add('open');
+    }
+  }
+
+  // Contact form
+  function submitForm(e){
+    e.preventDefault();
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('visible');
+  }
+
+  /* ============================================================
+     i18n — German is the default/fallback language (it lives in
+     the literal HTML). English overrides are stored below and are
+     applied when the visitor's browser prefers English, or when
+     they pick EN manually. The choice is remembered in localStorage.
+     ============================================================ */
+  var I18N_EN = {
+    "meta.title": "KOSSOV.IT — Sovereign AI Infrastructure, hosted in Europe",
+    "meta.desc": "We deploy, host and operate large language models entirely under European jurisdiction — open models on infrastructure you control, or managed proprietary models via Azure AI Foundry and Amazon Bedrock in EU regions. No data leaves the boundary you define.",
+    "nav.why": "Why",
+    "nav.services": "Services",
+    "nav.deployment": "Deployment",
+    "nav.compliance": "Compliance",
+    "nav.faq": "FAQ",
+    "nav.contact": "Contact",
+    "cta.talk": "Let's talk",
+    "cta.how": "How it works <span>&rarr;</span>",
+    "hero.eyebrow": "Sovereign AI Infrastructure",
+    "hero.h1": "Your AI. Your data.<br><span style=\"color:#2ba9d3;\">Your jurisdiction.</span>",
+    "hero.sub": "We deploy, host and operate large language models entirely under European jurisdiction — open models on infrastructure you control, or managed proprietary models — Claude, GPT and Grok via Azure AI Foundry and Amazon Bedrock — in EU regions. No data leaves the boundary you define.",
+    "hero.badge2": "&#9656; No data leaves your boundary",
+    "console.egress": "none — boundary enforced",
+    "console.encryption": "AES-256 · in-region keys",
+    "console.openLabel": "models · open <span style=\"color:#5cd2ee;\">— in your boundary</span>",
+    "console.propLabel": "models · proprietary <span style=\"color:#f08a8e;\">— Azure AI Foundry + Bedrock · EU</span>",
+    "console.status": "status: healthy · all systems in-region",
+    "badge.residency": "EU data residency",
+    "badge.gdpr": "GDPR-compliant",
+    "badge.aiact": "EU AI Act ready",
+    "badge.lockin": "No US cloud lock-in",
+    "why.eyebrow": "01 — Why sovereign",
+    "why.h2": "AI capability without surrendering control",
+    "why.lead": "Most AI services route your prompts, documents and customer data through infrastructure governed by foreign law. For regulated industries and serious enterprises, that is an unacceptable risk. We give you frontier-grade language models while keeping every byte inside a jurisdiction, a region and an access boundary that you own.",
+    "why.c1.h": "Data residency you can prove",
+    "why.c1.p": "Inference, embeddings and logs stay in the EU region you choose — Frankfurt by default. Nothing transits a US-controlled backbone.",
+    "why.c2.h": "Predictable, owned cost",
+    "why.c2.p": "Reserved capacity and fixed-rate hosting instead of unbounded per-token API bills. Forecast AI spend like any other line of infrastructure.",
+    "why.c3.h": "Compliance by architecture",
+    "why.c3.p": "GDPR and the EU AI Act are designed into the deployment — not bolted on. Audit trails, DPAs and data-flow documentation included.",
+    "services.eyebrow": "02 — Services",
+    "services.h2": "From first deployment to fine-tuned in production",
+    "services.s1.tag": "Assessment",
+    "services.s1.h": "Setup &amp; Architecture",
+    "services.s1.p": "We design the deployment: model selection, region, network boundary, access control and the compliance documentation that goes with it.",
+    "services.s2.tag": "Open + managed EU",
+    "services.s2.h": "Managed Hosting",
+    "services.s2.p": "We run the models for you — open-weight (Llama 4, Mistral, Qwen3, Gemma 3, DeepSeek, Kimi K2, GLM 5.2) on infrastructure you control, or managed proprietary models — Claude, GPT and Grok via Azure AI Foundry and Amazon Bedrock (EU). Monitored, patched, scaled.",
+    "services.s3.tag": "Retrieval",
+    "services.s3.h": "RAG &amp; Private Knowledge",
+    "services.s3.p": "Connect your own documents, wikis and databases to the model through a private retrieval layer. Your knowledge becomes answerable — without ever leaving your boundary.",
+    "services.s4.tag": "Custom weights",
+    "services.s4.h": "Fine-Tuning",
+    "services.s4.p": "Adapt a base model to your domain, your tone and your terminology on your own data. The resulting weights are yours.",
+    "how.eyebrow": "03 — How your data flows",
+    "how.h2": "Every request stays inside the boundary",
+    "how.lead": "No black box. This is the actual path a request takes — and the path it is never allowed to take.",
+    "how.yourside": "Your side",
+    "how.users": "Your users &amp; apps",
+    "how.tls": "&rarr; TLS 1.3 mutual auth",
+    "how.boundary": "Germany · Frankfurt — sovereign boundary",
+    "how.gw": "API gateway",
+    "how.gw.sub": "auth · rate-limit",
+    "how.inf": "Inference",
+    "how.inf.sub": "open + proprietary",
+    "how.rag": "RAG store",
+    "how.rag.sub": "your documents",
+    "how.logs": "Logs &amp; keys",
+    "how.logs.sub": "in-region only",
+    "how.egress.h": "Egress to US-controlled cloud — blocked",
+    "how.egress.sub": "no replication, no telemetry, no model-provider callback leaves the EU boundary",
+    "deploy.eyebrow": "04 — Deployment",
+    "deploy.h2": "Three ways to draw the boundary",
+    "deploy.regions": "Regions: <span style=\"color:#fff;\">Germany · Frankfurt</span> — more on request",
+    "deploy.t1.kind": "Managed",
+    "deploy.t1.h": "Managed proprietary (EU)",
+    "deploy.t1.p": "Frontier proprietary models — Claude Opus 4.8, GPT-5.5, Grok 4.3 — via Azure AI Foundry and Amazon Bedrock. EU data boundary and EU contracts.",
+    "deploy.t2.kind": "Sovereign",
+    "deploy.t2.tag": "Your hardware",
+    "deploy.t2.h": "On-premise",
+    "deploy.t2.p": "Models run on your own hardware, inside your own walls. The maximum-sovereignty option for defence, public sector and critical infrastructure.",
+    "deploy.t3.kind": "Dedicated",
+    "deploy.t3.h": "Private cloud (EU)",
+    "deploy.t3.p": "Dedicated, single-tenant infrastructure in a German region, with EU failover. Full isolation with the elasticity of cloud.",
+    "comp.eyebrow": "05 — Compliance &amp; trust",
+    "comp.h2": "Built for jurisdictions that take data seriously",
+    "comp.i1.h": "EU &amp; German jurisdiction",
+    "comp.i1.p": "Contracts, infrastructure and operations under European law. Maximum sovereignty on owned infrastructure, outside CLOUD Act reach.",
+    "comp.i2.h": "GDPR by default",
+    "comp.i2.p": "Data-processing agreements, documented data flows and EU-resident storage from day one.",
+    "comp.i3.h": "EU AI Act ready",
+    "comp.i3.p": "Risk classification, transparency and logging aligned with the incoming AI Act obligations.",
+    "cert.inprogress": "In progress",
+    "cert.aligned": "Aligned",
+    "cert.compliant": "Compliant",
+    "cert.ready": "Ready",
+    "sla.eyebrow": "Service-level agreement",
+    "sla.h2": "Guaranteed uptime and response times",
+    "sla.p": "Every managed deployment is backed by a written SLA — defined uptime and response-time targets, monitored around the clock by an EU-based engineering team. Clear numbers, written into the contract.",
+    "sla.uptime": "Uptime, monthly",
+    "sla.p1": "P1 response, 24/7",
+    "sla.sev": "Severity",
+    "sla.resp": "Response",
+    "sla.fix": "Target fix",
+    "sla.r1": "P1 · Down",
+    "sla.r2": "P2 · Degraded",
+    "sla.r3": "P3 · Question",
+    "sla.bd1": "1 business day",
+    "sla.bd1b": "1 business day",
+    "sla.sched": "scheduled",
+    "faq.eyebrow": "06 — FAQ",
+    "faq.h2": "Questions your security and legal teams will ask",
+    "faq.q0": "Are we exposed to the US CLOUD Act?",
+    "faq.a0": "On open-weight models running on owned or single-tenant EU infrastructure: no — there is no US parent in the data path, so the CLOUD Act does not reach your data. For the managed Azure AI Foundry path, processing stays in EU regions under the Microsoft EU Data Boundary and EU contracts; we are transparent that Microsoft has a US parent, which is exactly why we offer the owned-infrastructure path as the maximum-sovereignty option. We help you pick the right trade-off per workload.",
+    "faq.q1": "Where exactly does my data live?",
+    "faq.a1": "In the named region you choose — Germany · Frankfurt by default, with an EU failover region. Inference, embeddings, the RAG store, logs and encryption keys all stay in-region. Nothing is replicated, mirrored or backed up outside the EU boundary, and we document the data flow so you can show it to your auditor.",
+    "faq.q2": "Can I leave — and take my data and weights with me?",
+    "faq.a2": "Yes. No lock-in. Your data is exportable at any time, and any fine-tuned weights we produce are yours to keep and run elsewhere. We build on open standards and open-weight models specifically so that leaving is a clean handover, not a hostage negotiation.",
+    "faq.q3": "Who can access the models and my data?",
+    "faq.a3": "Only the identities you authorise, through role-based access control and full audit logging. Our EU-based operations team accesses infrastructure only under documented, logged procedures. Your prompts and documents are never used to train shared models — your data works for you alone.",
+    "contact.eyebrow": "Let's talk",
+    "contact.h2": "Bring your AI home.",
+    "contact.p": "Tell us what you want to run and what you need to protect. We'll come back with a concrete deployment and a fixed-cost proposal — no pitch decks, no jargon.",
+    "contact.s1.h": "A real conversation",
+    "contact.s1.p": "30 minutes with an engineer, not a salesperson.",
+    "contact.s2.h": "A concrete proposal",
+    "contact.s2.p": "Models, region, boundary and fixed cost — within a week.",
+    "contact.s3.h": "A working deployment",
+    "contact.s3.p": "Live in your boundary, monitored and backed by an SLA.",
+    "contact.directEmail": "Or email us directly: <a href=\"mailto:hi@kossov.it\" class=\"mail-link\" style=\"color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:3px;transition:color .15s;\">hi@kossov.it</a>",
+    "form.name": "Name",
+    "form.name.ph": "Jane Doe",
+    "form.company": "Company",
+    "form.email": "Work email",
+    "form.email.ph": "jane@acme.de",
+    "form.deployment": "Preferred deployment",
+    "form.opt1": "Managed proprietary (EU)",
+    "form.opt2": "Private cloud (EU)",
+    "form.opt3": "On-premise",
+    "form.opt4": "Not sure yet — advise me",
+    "form.run": "What do you want to run?",
+    "form.run.ph": "e.g. private RAG over our internal docs, plus a chat assistant for support…",
+    "form.submit": "Request a deployment plan",
+    "form.success": "Thanks — we'll reply within one business day.",
+    "form.note": "No newsletter. No CRM spam. Just a reply.",
+    "footer.tag": "Sovereign AI, hosted in Europe.",
+    "footer.legal": "Legal Notice",
+    "footer.rights": "&copy; 2026 KOSSOV.IT — All rights reserved.",
+    "sticky.title": "Sovereign AI, hosted in the EU"
+  };
+
+  (function(){
+    var nodes = document.querySelectorAll('[data-i18n]');
+    var phNodes = document.querySelectorAll('[data-i18n-ph]');
+    var deHTML = {}, dePH = {};
+    nodes.forEach(function(el){ deHTML[el.getAttribute('data-i18n')] = el.innerHTML; });
+    phNodes.forEach(function(el){ dePH[el.getAttribute('data-i18n-ph')] = el.getAttribute('placeholder'); });
+    var metaDesc = document.querySelector('meta[name="description"]');
+    var deMeta = { title: document.title, desc: metaDesc ? metaDesc.getAttribute('content') : '' };
+
+    function apply(lang){
+      var en = lang === 'en';
+      document.documentElement.lang = lang;
+      nodes.forEach(function(el){
+        var k = el.getAttribute('data-i18n');
+        el.innerHTML = (en && I18N_EN[k] != null) ? I18N_EN[k] : deHTML[k];
+      });
+      phNodes.forEach(function(el){
+        var k = el.getAttribute('data-i18n-ph');
+        el.setAttribute('placeholder', (en && I18N_EN[k] != null) ? I18N_EN[k] : dePH[k]);
+      });
+      document.title = en ? I18N_EN['meta.title'] : deMeta.title;
+      if(metaDesc) metaDesc.setAttribute('content', en ? I18N_EN['meta.desc'] : deMeta.desc);
+      document.querySelectorAll('.lang-flag').forEach(function(f){
+        var active = f.getAttribute('data-lang') === lang;
+        f.style.opacity = active ? '1' : '.45';
+        f.style.boxShadow = active ? '0 0 0 2px #2ba9d3' : 'none';
+        f.classList.toggle('inactive', !active);
+      });
+    }
+
+    function setLang(lang, persist){
+      if(lang !== 'en') lang = 'de';
+      apply(lang);
+      if(persist){ try{ localStorage.setItem('lang', lang); }catch(e){} }
+    }
+
+    function detect(){
+      var saved = null;
+      try{ saved = localStorage.getItem('lang'); }catch(e){}
+      if(saved === 'en' || saved === 'de') return saved;
+      var nav = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage || '';
+      // German is the fallback: only switch to English if the browser explicitly prefers English.
+      return nav.toLowerCase().indexOf('en') === 0 ? 'en' : 'de';
+    }
+
+    document.querySelectorAll('.lang-flag').forEach(function(f){
+      f.addEventListener('click', function(){ setLang(f.getAttribute('data-lang'), true); });
+    });
+
+    setLang(detect(), false);
+    window.setLang = setLang;
+  })();
+</script>
+
+</body>
+</html>
