@@ -12,7 +12,6 @@ legal-notice.html   Impressum + Datenschutzerklärung (Legal Notice + Privacy)
 assets/
   k-logo.svg        Brand logo (the "K" mark)
   favicon.svg       Favicon / apple-touch-icon
-  og-image.png/.svg Social share image (1200×630)
   fonts.css         @font-face for the self-hosted fonts
   fonts/            Inter + JetBrains Mono (woff2, self-hosted, OFL)
   flags/de.svg      Language switch — German
@@ -82,7 +81,9 @@ This repo is ready for Cloudflare Pages with **no build step**:
 - **Privacy:** `legal-notice.html` contains both the Impressum and a
   Datenschutzerklärung (anchor `#datenschutz`). Have both reviewed by a lawyer and
   conclude a data-processing agreement (AVV) with Cloudflare before going live.
-- **Social preview:** `og:image` points at `assets/og-image.png` (1200×630). Edit
-  `assets/og-image.svg` and re-export the PNG if you want to change it.
+- **Social preview:** no Open Graph image is set yet (link previews are
+  text-only). To add one, place a 1200×630 PNG in `assets/` and add
+  `og:image` / `twitter:image` tags — ideally built from the real logo and
+  Inter in a design tool, exported to PNG.
 - **Model names / claims** (e.g. "GPT-5.5", "99.95% uptime", certification
   statuses) are marketing copy — keep them accurate and verifiable.
