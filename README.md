@@ -8,14 +8,17 @@ server-side code — plain HTML/CSS/JS that can be dropped onto any static host.
 ```
 index.html          Homepage (Hero · Why · Services · Data flow · Deployment ·
                     Compliance · SLA · FAQ · Contact)
-legal-notice.html   Impressum / Legal Notice (§ 5 DDG)
+legal-notice.html   Impressum + Datenschutzerklärung (Legal Notice + Privacy)
 assets/
   k-logo.svg        Brand logo (the "K" mark)
   favicon.svg       Favicon / apple-touch-icon
+  og-image.png/.svg Social share image (1200×630)
+  fonts.css         @font-face for the self-hosted fonts
+  fonts/            Inter + JetBrains Mono (woff2, self-hosted, OFL)
   flags/de.svg      Language switch — German
   flags/en.svg      Language switch — English
 _headers            Security + cache headers (Cloudflare Pages)
-_redirects          /impressum and /legal → /legal-notice.html
+_redirects          /impressum, /datenschutz, /legal → legal-notice.html
 robots.txt          Crawl rules + sitemap reference
 sitemap.xml         Sitemap (homepage)
 ```
@@ -66,11 +69,20 @@ This repo is ready for Cloudflare Pages with **no build step**:
 
 ## Notes / TODO before going fully live
 
-- **Contact form** is currently front-end only (it shows a success message). A
-  working `mailto:hi@kossov.it` link is provided beside it. To actually receive
-  submissions, wire the `<form>` to an endpoint (e.g. a Cloudflare Pages Function,
-  Formspree or Web3Forms).
-- **Social preview image:** Open Graph tags reference `assets/k-logo.svg`. For
-  best results on social platforms, add a 1200×630 PNG and point `og:image` at it.
+- **Contact form** is ready for [Web3Forms](https://web3forms.com): paste your free
+  access key into `WEB3FORMS_KEY` in `index.html` to receive submissions by email.
+  Until then — and as a permanent fallback — the form opens a pre-filled email to
+  the contact address. Other options: a Cloudflare Pages Function, Formspree, etc.
+- **Email obfuscation:** the address is never written in the HTML/JS source. It is
+  assembled at runtime from `data-` attributes (no `mailto:` or `x@y` for
+  harvesters), with a `hi(at)kossov.it` fallback if JS is off. Contact: `hi [at]
+  kossov.it`.
+- **Fonts** (Inter, JetBrains Mono) are self-hosted under `assets/fonts/` (SIL OFL).
+  No request ever goes to Google; nothing font-related to disclose to third parties.
+- **Privacy:** `legal-notice.html` contains both the Impressum and a
+  Datenschutzerklärung (anchor `#datenschutz`). Have both reviewed by a lawyer and
+  conclude a data-processing agreement (AVV) with Cloudflare before going live.
+- **Social preview:** `og:image` points at `assets/og-image.png` (1200×630). Edit
+  `assets/og-image.svg` and re-export the PNG if you want to change it.
 - **Model names / claims** (e.g. "GPT-5.5", "99.95% uptime", certification
   statuses) are marketing copy — keep them accurate and verifiable.
