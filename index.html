@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>k-it.ai — Souveräne KI-Infrastruktur, gehostet in Europa</title>
-<meta name="description" content="Wir deployen, hosten und betreiben große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf Ihrer eigenen Hardware oder in der souveränen deutschen Cloud (IONOS), ganz ohne US-Mutterunternehmen im Datenpfad. Wenn Sie maximale Leistung brauchen, gemanagte Frontier-Modelle in EU-Regionen — mit transparenter Abwägung. Keine Daten verlassen die von Ihnen definierte Grenze.">
+<title>k-it.ai — Privater KI-Assistent für Ihre Dokumente & E-Mails (EU-souverän)</title>
+<meta name="description" content="k-it.ai ist Ihr privater KI-Assistent für Dokumente und E-Mails: Fragen in normaler Sprache stellen, Antworten mit Quellenangabe erhalten — vollständig unter europäischer Jurisdiktion, auf Ihrer eigenen Hardware oder in der souveränen deutschen Cloud (IONOS). Keine Daten verlassen Ihre Grenze.">
 <link rel="canonical" href="https://k-it.ai/">
 <meta name="theme-color" content="#0c1116">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="k-it.ai">
-<meta property="og:title" content="k-it.ai — Souveräne KI-Infrastruktur, gehostet in Europa">
-<meta property="og:description" content="Große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf Ihrer Hardware oder in der souveränen deutschen Cloud (IONOS), ohne US-Mutterunternehmen im Datenpfad. Optional gemanagte Frontier-Modelle in EU-Regionen. Keine Daten verlassen die von Ihnen definierte Grenze.">
+<meta property="og:title" content="k-it.ai — Privater KI-Assistent für Ihre Dokumente & E-Mails (EU-souverän)">
+<meta property="og:description" content="Fragen Sie Ihre Dokumente und E-Mails in normaler Sprache — Antworten mit Quellenangabe, vollständig unter europäischer Jurisdiktion, auf Ihrer Hardware oder in der souveränen deutschen Cloud (IONOS). Keine Daten verlassen Ihre Grenze.">
 <meta property="og:url" content="https://k-it.ai/">
 <meta property="og:image" content="https://k-it.ai/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -42,18 +42,20 @@
   .ghost-btn:hover{border-color:#2ba9d3!important;}
   .service-card:hover{border-color:rgba(43,169,211,.45)!important;}
   /* Deployment tier cards */
-  .tier-card{transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+  .tier-card{flex:1;display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
+  .tier-card>div:last-child{flex:1;display:flex;flex-direction:column;}
   .tier-card:hover{transform:translateY(-4px);border-color:rgba(43,169,211,.4)!important;}
   .tier-card--rec{border-color:rgba(43,111,214,.55)!important;box-shadow:0 0 0 1px rgba(43,111,214,.30),0 22px 50px rgba(0,61,143,.30);}
   .tier-card--rec:hover{transform:translateY(-6px);border-color:rgba(43,111,214,.85)!important;}
   .tier-badge{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#bcd6ff;background:rgba(43,111,214,.18);border:1px solid rgba(43,111,214,.45);border-radius:999px;padding:3px 9px;display:inline-flex;align-items:center;gap:4px;}
-  .tier-price{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:9px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;}
+  .tier-price{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:9px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;}
   .tier-price .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
   .tier-price .lbl{color:#5b6470;letter-spacing:.04em;text-transform:uppercase;font-size:11px;}
   .tier-price .val{color:#fff;}
   .tier-price .val-hi{color:#2f7bd6;font-weight:700;font-size:15px;}
   .lang-flag.inactive:hover{opacity:1!important;}
   .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:#2ba9d3!important;}
+  .form-select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232ba9d3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;}
   .footer-link:hover,.back-link:hover{color:#fff!important;}
   .drawer-link:hover{color:#fff!important;background:rgba(255,255,255,.05)!important;}
   .mail-link:hover{color:#fff!important;}
@@ -155,10 +157,10 @@
       <div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
           <span style="color:#da2128;font-size:13px;">&#9656;</span>
-          <span data-i18n="hero.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;">Souveräne KI-Infrastruktur</span>
+          <span data-i18n="hero.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;">Privater KI-Assistent · EU-souverän</span>
         </div>
         <h1 class="hero-h1" data-i18n="hero.h1" style="font-size:54px;font-weight:700;letter-spacing:-.03em;line-height:1.04;margin:0;color:#fff;">Ihre KI. Ihre Daten.<br><span style="color:#2ba9d3;">Ihre Jurisdiktion.</span></h1>
-        <p class="hero-sub" data-i18n="hero.sub" style="font-size:18px;line-height:1.65;color:#cfd6dd;margin:24px 0 0;max-width:520px;">Wir deployen, hosten und betreiben große Sprachmodelle vollständig unter europäischer Jurisdiktion — offene Modelle auf Ihrer eigenen Hardware oder in der souveränen deutschen Cloud (IONOS), ganz ohne US-Mutterunternehmen im Datenpfad. Und wenn Sie maximale Leistung brauchen, gemanagte Frontier-Modelle in EU-Regionen — mit transparenter Abwägung. Keine Daten verlassen die von Ihnen definierte Grenze.</p>
+        <p class="hero-sub" data-i18n="hero.sub" style="font-size:18px;line-height:1.65;color:#cfd6dd;margin:24px 0 0;max-width:520px;">k-it.ai ist Ihr privater KI-Assistent für Dokumente und E-Mails. Fragen Sie in normaler Sprache — etwa „Was ist der Stand bei Müller GmbH?" — und erhalten Sie eine Antwort <b style="color:#fff;font-weight:600;">mit Quellenangabe</b>. Alles läuft auf Ihrer eigenen Hardware oder in der souveränen deutschen Cloud (IONOS); keine Daten verlassen die von Ihnen definierte Grenze.</p>
         <div style="display:flex;gap:14px;margin-top:32px;align-items:center;flex-wrap:wrap;">
           <a href="#contact" class="cta-btn-lg" data-i18n="cta.talk" style="background:#2ba9d3;color:#fff;padding:13px 24px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(43,169,211,.30),0 2px 8px rgba(0,0,0,.10);transition:filter .15s;">Kontakt aufnehmen</a>
           <a href="#how" class="ghost-btn" data-i18n="cta.how" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 22px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:border-color .15s;">So funktioniert es <span>&rarr;</span></a>
@@ -195,7 +197,7 @@
             <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">region</span><span style="color:#fff;text-align:right;">Germany · Frankfurt</span></div>
             <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">egress</span><span data-i18n="console.egress" style="color:#5cd2ee;text-align:right;">keine — Grenze erzwungen</span></div>
             <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">encryption</span><span data-i18n="console.encryption" style="color:#fff;text-align:right;">AES-256 · Schlüssel in der Region</span></div>
-            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">provider</span><span data-i18n="console.provider" style="color:#fff;text-align:right;">IONOS (DE) · oder Ihre Hardware</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">provider</span><span data-i18n="console.provider" style="color:#fff;text-align:right;">IONOS · Ihre Hardware · Azure/AWS (EU)</span></div>
             <div style="display:flex;justify-content:space-between;gap:12px;"><span style="color:#9aa3ad;">coordinator</span><span data-i18n="console.coordinator" style="color:#5cd2ee;text-align:right;">selbst-gehosteter EU-VPS</span></div>
             <div data-i18n="console.ionosLabel" style="margin:16px 0 8px;color:#9aa3ad;">Modelle · IONOS <span style="color:#5cd2ee;">— souveräne DE-Cloud</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:8px;">
@@ -337,22 +339,22 @@
             <div class="flow-inner" style="display:flex;align-items:stretch;gap:0;">
               <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
                 <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><path d="M4 12h16M4 12l5-5M4 12l5 5" stroke-linecap="round" stroke-linejoin="round"/><rect x="14" y="6" width="6" height="12" rx="1"/></svg></div>
-                <div data-i18n="how.gw" style="font-size:13px;font-weight:600;color:#fff;">API-Gateway</div>
+                <div data-i18n="how.gw" style="font-size:13px;font-weight:600;color:#fff;">Zugang</div>
                 <div data-i18n="how.gw.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">Auth · Rate-Limit</div>
               </div>
               <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;"></span></div></div>
               <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;"></span></div></div>
               <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
                 <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke-linecap="round"/></svg></div>
-                <div data-i18n="how.inf" style="font-size:13px;font-weight:600;color:#fff;">Inferenz</div>
+                <div data-i18n="how.inf" style="font-size:13px;font-weight:600;color:#fff;">KI-Modell</div>
                 <div data-i18n="how.inf.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">IONOS / on-prem</div>
               </div>
               <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;animation-delay:.9s;"></span></div></div>
               <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;animation-delay:.9s;"></span></div></div>
               <div style="flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:6px;">
                 <div style="width:42px;height:42px;border-radius:10px;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2ba9d3" stroke-width="1.5"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
-                <div data-i18n="how.rag" style="font-size:13px;font-weight:600;color:#fff;">RAG-Speicher</div>
-                <div data-i18n="how.rag.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">Ihre Dokumente</div>
+                <div data-i18n="how.rag" style="font-size:13px;font-weight:600;color:#fff;">Ihr Wissen</div>
+                <div data-i18n="how.rag.sub" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;color:#5b6470;">Dokumente &amp; E-Mails</div>
               </div>
               <div class="flow-connector" style="display:flex;align-items:center;padding-top:18px;"><div style="position:relative;width:46px;height:2px;background:rgba(43,169,211,.25);"><span style="position:absolute;top:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdot 2.6s linear infinite;animation-delay:1.7s;"></span></div></div>
               <div class="flow-connector-v" style="display:none;align-items:center;justify-content:center;padding:4px 0;"><div style="position:relative;width:2px;height:26px;background:rgba(43,169,211,.25);"><span style="position:absolute;left:-2px;width:6px;height:6px;border-radius:999px;background:#2ba9d3;box-shadow:0 0 8px #2ba9d3;animation:flowdotv 2.6s linear infinite;animation-delay:1.7s;"></span></div></div>
@@ -388,7 +390,7 @@
       <div data-i18n="deploy.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;margin-bottom:16px;">04 — Deployment</div>
       <h2 class="sec-h2" data-i18n="deploy.h2" style="font-size:38px;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0;color:#fff;">Drei Wege, die Grenze zu ziehen</h2>
       <p data-i18n="deploy.regions" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:#9aa3ad;margin:16px 0 0;">Regionen: <span style="color:#fff;">Deutschland · Frankfurt (IONOS / on-prem)</span> — weitere auf Anfrage</p>
-      <div class="deployment-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;align-items:start;">
+      <div class="deployment-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;align-items:stretch;">
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;align-items:baseline;gap:10px;">
             <span style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2ba9d3;">Tier 1</span>
@@ -475,10 +477,10 @@
       </div>
     </div>
     <div class="certs-grid" style="max-width:1180px;margin:8px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">ISO 27001</span><span data-i18n="cert.inprogress" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#e0b15a;background:rgba(224,177,90,.12);border:1px solid rgba(224,177,90,.3);border-radius:999px;padding:4px 9px;">In Arbeit</span></div>
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">BSI C5</span><span data-i18n="cert.aligned" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5cd2ee;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);border-radius:999px;padding:4px 9px;">Ausgerichtet</span></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">GDPR / DSGVO</span><span data-i18n="cert.compliant" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5fbf92;background:rgba(31,138,91,.14);border:1px solid rgba(31,138,91,.35);border-radius:999px;padding:4px 9px;">Ab Werk</span></div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">EU AI Act</span><span data-i18n="cert.ready" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5fbf92;background:rgba(31,138,91,.14);border:1px solid rgba(31,138,91,.35);border-radius:999px;padding:4px 9px;">Bereit</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">BSI C5</span><span data-i18n="cert.aligned" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5cd2ee;background:rgba(43,169,211,.12);border:1px solid rgba(43,169,211,.3);border-radius:999px;padding:4px 9px;">Ausgerichtet</span></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#11171d;"><span style="font-weight:600;font-size:14px;color:#fff;">ISO 27001</span><span data-i18n="cert.inprogress" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#e0b15a;background:rgba(224,177,90,.12);border:1px solid rgba(224,177,90,.3);border-radius:999px;padding:4px 9px;">In Arbeit</span></div>
     </div>
   </section>
 
@@ -572,7 +574,7 @@
             <div><label data-i18n="form.company" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Unternehmen</label><input type="text" placeholder="Acme GmbH" name="company" class="form-input" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;"></div>
           </div>
           <div style="margin-top:14px;"><label data-i18n="form.email" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Geschäftliche E-Mail</label><input type="email" placeholder="erika@acme.de" name="email" data-i18n-ph="form.email.ph" class="form-input" required style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;"></div>
-          <div style="margin-top:14px;"><label data-i18n="form.deployment" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Bevorzugtes Deployment</label><select name="deployment" class="form-select" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;appearance:none;-webkit-appearance:none;"><option data-i18n="form.opt1">IONOS EU Sovereign Cloud (empfohlen)</option><option data-i18n="form.opt2">On-Premise (§203 / sicherste Option)</option><option data-i18n="form.opt3">Managed Frontier (EU) — max. Leistung</option><option data-i18n="form.opt4">Noch unsicher — beraten Sie mich</option></select></div>
+          <div style="margin-top:14px;"><label data-i18n="form.deployment" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Bevorzugtes Deployment — bitte wählen</label><select name="deployment" class="form-select" style="width:100%;background-color:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 40px 11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;cursor:pointer;transition:border-color .15s;appearance:none;-webkit-appearance:none;"><option data-i18n="form.opt1">IONOS EU Sovereign Cloud (empfohlen)</option><option data-i18n="form.opt2">On-Premise (§203 / sicherste Option)</option><option data-i18n="form.opt3">Managed Frontier (EU) — max. Leistung</option><option data-i18n="form.opt4">Noch unsicher — beraten Sie mich</option></select></div>
           <div style="margin-top:14px;"><label data-i18n="form.run" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#9aa3ad;display:block;margin-bottom:7px;">Was möchten Sie betreiben?</label><textarea rows="3" placeholder="z. B. privates RAG über unsere internen Dokumente, dazu ein Chat-Assistent für den Support …" data-i18n-ph="form.run.ph" name="message" class="form-textarea" style="width:100%;background:#11171d;border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:11px 13px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;resize:vertical;"></textarea></div>
           <button type="submit" class="form-submit" data-i18n="form.submit" style="margin-top:18px;width:100%;background:#2ba9d3;color:#fff;border:none;padding:14px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;font-family:'Inter',sans-serif;transition:filter .15s;">Deployment-Plan anfordern</button>
           <div data-i18n="form.privacy" style="margin-top:14px;font-size:11px;line-height:1.5;color:#5b6470;text-align:center;">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß unserer <a href="legal-notice.html#datenschutz" style="color:#9aa3ad;text-decoration:underline;">Datenschutzerklärung</a> zu.</div>
@@ -697,8 +699,8 @@
      they pick EN manually. The choice is remembered in localStorage.
      ============================================================ */
   var I18N_EN = {
-    "meta.title": "k-it.ai — Sovereign AI Infrastructure, hosted in Europe",
-    "meta.desc": "We deploy, host and operate large language models entirely under European jurisdiction — open models in the sovereign German cloud (IONOS) or on your own hardware, with no US parent in the data path. When you need maximum capability, managed frontier models in EU regions — with a transparent trade-off. No data leaves the boundary you define.",
+    "meta.title": "k-it.ai — Private AI assistant for your documents & email (EU-sovereign)",
+    "meta.desc": "k-it.ai is your private AI assistant for documents and email: ask in plain language, get answers that cite their sources — entirely under European jurisdiction, on your own hardware or in the sovereign German cloud (IONOS). No data leaves your boundary.",
     "nav.why": "Why",
     "nav.services": "Services",
     "nav.deployment": "Deployment",
@@ -707,16 +709,16 @@
     "nav.contact": "Contact",
     "cta.talk": "Let's talk",
     "cta.how": "How it works <span>&rarr;</span>",
-    "hero.eyebrow": "Sovereign AI Infrastructure",
+    "hero.eyebrow": "Private AI assistant · EU-sovereign",
     "hero.h1": "Your AI. Your data.<br><span style=\"color:#2ba9d3;\">Your jurisdiction.</span>",
-    "hero.sub": "We deploy, host and operate large language models entirely under European jurisdiction — open models in the sovereign German cloud (IONOS) or on your own hardware, with no US parent in the data path. And when you need maximum capability, managed frontier models in EU regions — with a transparent trade-off. No data leaves the boundary you define.",
+    "hero.sub": "k-it.ai is your private AI assistant for documents and email. Ask in plain language — e.g. “What's the status with Müller GmbH?” — and get an answer <b style=\"color:#fff;font-weight:600;\">that cites its sources</b>. Everything runs on your own hardware or in the sovereign German cloud (IONOS); no data leaves the boundary you define.",
     "hero.badge2": "&#9656; No data leaves your boundary",
     "console.egress": "none — boundary enforced",
     "console.encryption": "AES-256 · in-region keys",
     "console.openLabel": "models · open <span style=\"color:#5cd2ee;\">— in your boundary</span>",
     "console.ionosLabel": "models · IONOS <span style=\"color:#5cd2ee;\">— sovereign DE cloud</span>",
     "console.selfLabel": "models · self-hosted <span style=\"color:#5cd2ee;\">— your hardware</span>",
-    "console.provider": "IONOS (DE) · or your hardware",
+    "console.provider": "IONOS · your hardware · Azure/AWS (EU)",
     "console.coordinator": "self-hosted EU VPS",
     "console.propLabel": "models · frontier <span style=\"color:#f08a8e;\">— optional · EU region · residual CLOUD Act</span>",
     "console.status": "status: healthy · all systems in-region",
@@ -754,12 +756,12 @@
     "how.users": "Your users &amp; apps",
     "how.tls": "&rarr; TLS 1.3 mutual auth",
     "how.boundary": "Germany · Frankfurt — sovereign boundary",
-    "how.gw": "API gateway",
+    "how.gw": "Access",
     "how.gw.sub": "auth · rate-limit",
-    "how.inf": "Inference",
+    "how.inf": "AI model",
     "how.inf.sub": "IONOS / on-prem",
-    "how.rag": "RAG store",
-    "how.rag.sub": "your documents",
+    "how.rag": "Your knowledge",
+    "how.rag.sub": "documents &amp; email",
     "how.logs": "Logs &amp; keys",
     "how.logs.sub": "in-region only",
     "how.egress.h": "Egress to US-controlled cloud — blocked",
@@ -834,7 +836,7 @@
     "form.company": "Company",
     "form.email": "Work email",
     "form.email.ph": "jane@acme.de",
-    "form.deployment": "Preferred deployment",
+    "form.deployment": "Preferred deployment — please choose",
     "form.opt1": "IONOS EU Sovereign Cloud (recommended)",
     "form.opt2": "On-premise (§203 / safest)",
     "form.opt3": "Managed Frontier (EU) — max capability",
