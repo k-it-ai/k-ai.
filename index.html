@@ -49,8 +49,8 @@
   .tier-card{flex:1;display:flex;flex-direction:column;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;}
   .tier-card>div:last-child{flex:1;display:flex;flex-direction:column;}
   .tier-card:hover{transform:translateY(-4px);border-color:rgba(43,169,211,.4)!important;}
-  .tier-card--rec{border-color:rgba(43,111,214,.55)!important;box-shadow:0 0 0 1px rgba(43,111,214,.30),0 22px 50px rgba(0,61,143,.30);}
-  .tier-card--rec:hover{transform:translateY(-6px);border-color:rgba(43,111,214,.85)!important;}
+  .tier-card--rec{border-color:rgba(43,111,214,.55)!important;box-shadow:0 16px 40px rgba(0,61,143,.16);}
+  .tier-card--rec:hover{transform:translateY(-6px);border-color:rgba(43,111,214,.75)!important;box-shadow:0 22px 48px rgba(0,61,143,.22);}
   .tier-badge{font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#bcd6ff;background:rgba(43,111,214,.18);border:1px solid rgba(43,111,214,.45);border-radius:999px;padding:3px 9px;display:inline-flex;align-items:center;gap:4px;}
   .tier-price{margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:9px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;}
   .tier-price .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
@@ -160,7 +160,7 @@
     <div class="hero-grid" style="position:relative;max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.02fr .98fr;gap:60px;align-items:start;">
       <div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
-          <span style="color:#da2128;font-size:13px;">&#9656;</span>
+          <span style="color:#da2128;font-size:13px;">&#9679;</span>
           <span data-i18n="hero.eyebrow" style="font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2ba9d3;">Privater KI-Assistent · EU-souverän</span>
         </div>
         <h1 class="hero-h1" data-i18n="hero.h1" style="font-size:54px;font-weight:700;letter-spacing:-.03em;line-height:1.04;margin:0;color:#fff;">Ihre KI. Ihre Daten.<br><span style="color:#2ba9d3;">Ihre Jurisdiktion.</span></h1>
@@ -170,8 +170,8 @@
           <a href="#how" class="ghost-btn" data-i18n="cta.how" style="display:flex;align-items:center;gap:7px;color:#fff;padding:13px 22px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:8px;transition:border-color .15s;">So funktioniert es <span>&rarr;</span></a>
         </div>
         <div style="display:flex;gap:26px;margin-top:34px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;color:#9aa3ad;flex-wrap:wrap;">
-          <span>&#9656; Germany · Frankfurt</span>
-          <span data-i18n="hero.badge2">&#9656; Keine Daten verlassen Ihre Grenze</span>
+          <span>&#9679; Germany · Frankfurt</span>
+          <span data-i18n="hero.badge2">&#9679; Keine Daten verlassen Ihre Grenze</span>
         </div>
       </div>
       <div style="position:relative;">
@@ -242,10 +242,10 @@
   <!-- ============ BADGES ============ -->
   <div style="border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:#0e141a;">
     <div class="badges-strip" style="max-width:1180px;margin:0 auto;padding:18px 56px;display:flex;justify-content:space-between;gap:24px;font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;flex-wrap:wrap;">
-      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.residency">EU-Datenresidenz</span></span>
-      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.gdpr">DSGVO-konform gestaltet</span></span>
-      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.aiact">Bereit für den EU AI Act</span></span>
-      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9656;</span> <span data-i18n="badge.lockin">Kein US-Cloud-Lock-in</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9679;</span> <span data-i18n="badge.residency">EU-Datenresidenz</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9679;</span> <span data-i18n="badge.gdpr">DSGVO-konform gestaltet</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9679;</span> <span data-i18n="badge.aiact">Bereit für den EU AI Act</span></span>
+      <span style="display:flex;align-items:center;gap:9px;color:#cfd6dd;"><span style="color:#2ba9d3;">&#9679;</span> <span data-i18n="badge.lockin">Kein US-Cloud-Lock-in</span></span>
     </div>
   </div>
 
@@ -407,8 +407,8 @@
               <h3 data-i18n="deploy.t1.h" style="font-size:20px;font-weight:600;margin:10px 0 10px;color:#fff;">On-Premise</h3>
               <p data-i18n="deploy.t1.p" style="font-size:15px;line-height:1.65;color:#9aa3ad;margin:0;">Die sicherste Option: Modelle laufen auf Ihrer eigenen Hardware — einer kompakten KI-Workstation mit 128 GB Unified Memory (AMD Ryzen AI Max+ 395) in Ihren Räumen. gpt-oss-120B antwortet lokal in Echtzeit; kein externer Verarbeiter im Datenpfad. Für Berufsgeheimnisträger nach §203 StGB — Kanzleien, Praxen, Steuerberater — sowie Verteidigung, öffentlichen Sektor und kritische Infrastruktur.</p>
               <div class="tier-price">
-                <div class="row"><span class="lbl" data-i18n="deploy.price.once">Einmalig</span><span class="val">4.490 €</span></div>
-                <div class="row"><span class="lbl" data-i18n="deploy.price.month">Monatlich</span><span class="val">390 €</span></div>
+                <div class="row"><span class="lbl" data-i18n="deploy.price.once">Einmalig</span><span class="val">4.495 €</span></div>
+                <div class="row"><span class="lbl" data-i18n="deploy.price.month">Monatlich</span><span class="val">399 €</span></div>
                 <div class="row"><span class="lbl">API</span><span class="val" data-i18n="deploy.t1.api" style="color:#9aa3ad;">lokal · keine</span></div>
               </div>
             </div>
@@ -467,15 +467,15 @@
       </div>
       <div style="display:flex;flex-direction:column;">
         <div style="display:flex;gap:18px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);">
-          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9679;</span>
           <div><h3 data-i18n="comp.i1.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">EU- &amp; deutsche Jurisdiktion</h3><p data-i18n="comp.i1.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Verträge, Infrastruktur und Betrieb nach europäischem Recht. In der souveränen deutschen Cloud (IONOS) oder auf Ihrer eigenen Hardware liegt kein US-Mutterunternehmen im Datenpfad — außerhalb der Reichweite des CLOUD Act.</p></div>
         </div>
         <div style="display:flex;gap:18px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.08);">
-          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9679;</span>
           <div><h3 data-i18n="comp.i2.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">DSGVO ab Werk</h3><p data-i18n="comp.i2.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Auftragsverarbeitungsverträge, dokumentierte Datenflüsse und EU-ansässige Speicherung ab dem ersten Tag.</p></div>
         </div>
         <div style="display:flex;gap:18px;padding:22px 0;">
-          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9656;</span>
+          <span style="color:#da2128;font-size:16px;line-height:1.6;">&#9679;</span>
           <div><h3 data-i18n="comp.i3.h" style="font-size:18px;font-weight:600;margin:0 0 6px;color:#fff;">Bereit für den EU AI Act</h3><p data-i18n="comp.i3.p" style="font-size:15px;line-height:1.6;color:#9aa3ad;margin:0;">Risikoklassifizierung, Transparenz und Logging — ausgerichtet an den kommenden Pflichten des AI Act.</p></div>
         </div>
       </div>
@@ -716,7 +716,7 @@
     "hero.eyebrow": "Private AI assistant · EU-sovereign",
     "hero.h1": "Your AI. Your data.<br><span style=\"color:#2ba9d3;\">Your jurisdiction.</span>",
     "hero.sub": "k-it.ai is your private AI assistant for documents and email. Ask in plain language — e.g. “What's the status with Müller GmbH?” — and get an answer <b style=\"color:#fff;font-weight:600;\">that cites its sources</b>. Everything runs on your own hardware or in the sovereign German cloud (IONOS); no data leaves the boundary you define.",
-    "hero.badge2": "&#9656; No data leaves your boundary",
+    "hero.badge2": "&#9679; No data leaves your boundary",
     "console.egress": "none — boundary enforced",
     "console.encryption": "AES-256 · in-region keys",
     "console.openLabel": "models · open <span style=\"color:#5cd2ee;\">— in your boundary</span>",
